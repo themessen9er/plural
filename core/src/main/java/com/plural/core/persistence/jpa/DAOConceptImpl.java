@@ -8,14 +8,12 @@ import com.plural.core.persistence.Concept;
 import com.plural.core.persistence.DAO;
 import com.plural.core.persistence.DAOConcept;
 import com.plural.core.persistence.TransactionWrapper;
-import com.plural.core.util.Tag;
 
 /**
  * @author Francisco Vargas (themessen9er@gmail.com)
  *
  * The JPA implementation of {@link DAO} for {@link ConceptEntity}
  */
-@Tag({"dao", "persistence", "concept"})
 public class DAOConceptImpl extends DAOImpl<Concept> implements DAOConcept {
 
 	/**
@@ -27,7 +25,6 @@ public class DAOConceptImpl extends DAOImpl<Concept> implements DAOConcept {
 	}
 
 	@Override
-	@Tag({"daomethod", "persistencemethod", "conceptmethod"})
 	public Concept create(final Concept entity) {
 		try {
 			return new TransactionWrapper<Concept>(this) {

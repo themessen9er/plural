@@ -1,4 +1,4 @@
-package com.plural.core.util;
+package com.plural.java;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -12,8 +12,14 @@ import java.lang.annotation.RetentionPolicy;
 public @interface Tag {
 
 	/**
+	 * The delimiter character for the tags.
+	 * e.g. @Tag("one, two, three")
+	 */
+	public static final char DELIMITER = ',';
+	
+	/**
 	 * @return The set of related concepts
 	 */
-	String[] value();
+	String value();
 
 }
