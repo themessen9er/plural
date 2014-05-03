@@ -3,3 +3,10 @@ core/.project
 java/.classpath
 java/.project
 java/doc
+.metadata
+.project
+.settings
+.checkstyle
+.classpath
+new4jDB
+

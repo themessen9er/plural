@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.plural</groupId>
-	<artifactId>core</artifactId>
+	<artifactId>java</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>core</name>
+	<name>java</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -62,7 +62,7 @@
 		<dependency>
 			<groupId>com.google.code.javaparser</groupId>
 			<artifactId>javaparser</artifactId>
-			<version>1.0.8</version>
+			<version>1.0.9</version>
 		</dependency>
 
 	</dependencies>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configure id='wac' class="org.mortbay.jetty.plugin.JettyWebAppContext">
+<!-- 	<New id="myds" class="org.eclipse.jetty.plus.jndi.Resource"> -->
+<!-- 		<Arg></Arg> -->
+<!-- 		<Arg>jdbc/leelaDataSource</Arg> -->
+<!-- 		<Arg> -->
+<!-- 			<New class="org.apache.commons.dbcp.BasicDataSource"> -->
+<!-- 				<Set name="driverClassName">${jdbc.driver}</Set> -->
+<!-- 				<Set name="url">${jdbc.url}</Set> -->
+<!-- 				<Set name="username">${jdbc.user}</Set> -->
+<!-- 				<Set name="password">${jdbc.password}</Set> -->
+<!-- 			</New> -->
+<!-- 		</Arg> -->
+<!-- 	</New> -->
+</Configure>
