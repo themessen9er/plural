@@ -1,0 +1,11 @@
+sourceSets {
+	main {
+		java
+	}
+}
+
+dependencies {
+	compile project(':core')
+	compile 'com.google.inject:guice:3.0'
+	compile 'com.google.code.javaparser:javaparser:1.0.9'
+}

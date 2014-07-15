@@ -1,0 +1,28 @@
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'maven'
+	apply plugin: 'eclipse'
+
+	group = "com.premiumminds.bacon"
+	version = '0.0.1'
+
+	repositories {
+		mavenCentral()
+		maven {
+			url "http://maven/repo"
+		}
+	}
+
+	dependencies {
+		
+		compile 'org.slf4j:slf4j-api:1.7.6'
+		compile 'org.slf4j:slf4j-log4j12:1.7.6'
+
+		runtime 'log4j:log4j:1.2.17'
+
+	}
+
+	task wrapper(type: Wrapper) {
+		gradleVersion = '1.11'
+	}
+}

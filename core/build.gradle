@@ -1,0 +1,11 @@
+sourceSets {
+	main {
+		java
+	}
+}
+
+dependencies {
+	compile 'com.google.inject:guice:3.0'
+	compile 'org.neo4j:neo4j:2.1.0-M01'
+	compile 'org.reflections:reflections-maven:0.9.9-RC1'
+}
