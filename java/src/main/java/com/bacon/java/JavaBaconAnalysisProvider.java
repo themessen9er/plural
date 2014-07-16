@@ -1,41 +1,37 @@
 package com.bacon.java;
 
-import java.lang.reflect.AnnotatedElement;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Set;
-
-import org.reflections.Reflections;
-import org.reflections.scanners.FieldAnnotationsScanner;
-import org.reflections.scanners.MethodAnnotationsScanner;
-import org.reflections.scanners.MethodParameterScanner;
-import org.reflections.scanners.ResourcesScanner;
-import org.reflections.scanners.SubTypesScanner;
-import org.reflections.scanners.TypeAnnotationsScanner;
-import org.reflections.scanners.TypeElementsScanner;
-import org.reflections.util.ClasspathHelper;
-import org.reflections.util.ConfigurationBuilder;
-
 import com.bacon.core.BaconAnalysisProvider;
 import com.bacon.core.services.BaconAnalysis;
-import com.bacon.core.services.BaconAnalysis.Entry;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
+import com.bacon.core.util.ProgressCallback;
 
 public class JavaBaconAnalysisProvider implements BaconAnalysisProvider {
 
-	@Tag("something, shit, damn")
+	private final StaticAnalyzer analizer = new StaticAnalyzer();
+	private int progress = 0;
+	
 	@Override
-	public BaconAnalysis analyze() {
+	public synchronized BaconAnalysis analyze() {
 		BaconAnalysis result = new BaconAnalysis();
 
 //		new RuntimeAnalyzer().process(Sets.newHashSet(ClasspathHelper.forPackage("")), result);
-		new StaticAnalyzer().process("static", result);
+		progress = 0;
+		analizer.process("static", result, new ProgressCallback() {
+			
+			@Override
+			public void onProgressChanged(int p) {
+				progress = p;
+				if(p == 100) {
+					progress = 0;
+				}
+			}
+		});
 
 		return result;
 	}
 
-	
+	@Override
+	public int getProgress() {
+		return progress;
+	}
 
 }

@@ -1,5 +1,8 @@
 package com.bacon.mayo.ws.entities;
 
+import com.wordnik.swagger.annotations.ApiModel;
+
+@ApiModel(value="WSOccurrence", description = "Represents an occurrence of a concept in a source file")
 public class WSOccurrence {
 
 	public String location;

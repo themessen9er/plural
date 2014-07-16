@@ -6,4 +6,6 @@ public interface BaconAnalysisProvider {
 
 	public BaconAnalysis analyze();
 	
+	public int getProgress();
+	
 }

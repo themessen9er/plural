@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="http://getbootstrap.com/favicon.ico">
+<title>Bacon Docs</title>
+
+<!-- Bootstrap core CSS -->
+<link href="http://getbootstrap.com/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link
+	href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css"
+	rel="stylesheet">
+<link href="css/typeahead.css" rel="stylesheet">
+
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+<script src="modules/bacon.js"></script>
+<script src="modules/core/bacon-core.js"></script>
+<script src="modules/analisys/bacon-analisys.js"></script>
+<script src="modules/charts/bacon-charts.js"></script>
+<script src="modules/projects/bacon-projects.js"></script>
+<script src="modules/search/bacon-search.js"></script>
+
+</head>
+
+<body ng-app="bacon">
+
+	<div class="container">
+		<div class="header"
+			ng-controller="AnalisysProgressController as progressCtl">
+			<div class="pull-right">
+				<a class="btn btn-success" role="button"
+					ng-click="progressCtl.analize()">Analize</a>
+			</div>
+			<h3 class="text-muted">Bacon</h3>
+			<div ng-show="progressCtl.busy" class="progress">
+				<div class="progress-bar" role="progressbar"
+					aria-valuenow="{{progressCtl.getProgress()}}" aria-valuemin="0"
+					aria-valuemax="100" style="width: {{progressCtl.getProgress()}}%">
+					<span class="sr-only">{{progressCtl.getProgress()}}%
+						Complete</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="jumbotron" id="search" ng-controller="ConceptSearchController as searchCtlr">
+			<div class="demo">
+				<input class="typeahead" type="text" placeholder="Concepts">
+			</div>
+		</div>
+
+		<!-- 		<div class="row marketing"> -->
+		<!-- 			<div class="col-lg-6"> -->
+		<!-- 				<h4>Subheading</h4> -->
+		<!-- 				<p>Donec id elit non mi porta gravida at eget metus. Maecenas -->
+		<!-- 					faucibus mollis interdum.</p> -->
+
+		<!-- 				<h4>Subheading</h4> -->
+		<!-- 				<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. -->
+		<!-- 					Cras mattis consectetur purus sit amet fermentum.</p> -->
+
+		<!-- 				<h4>Subheading</h4> -->
+		<!-- 				<p>Maecenas sed diam eget risus varius blandit sit amet non -->
+		<!-- 					magna.</p> -->
+		<!-- 			</div> -->
+
+		<!-- 			<div class="col-lg-6"> -->
+		<!-- 				<h4>Subheading</h4> -->
+		<!-- 				<p>Donec id elit non mi porta gravida at eget metus. Maecenas -->
+		<!-- 					faucibus mollis interdum.</p> -->
+
+		<!-- 				<h4>Subheading</h4> -->
+		<!-- 				<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. -->
+		<!-- 					Cras mattis consectetur purus sit amet fermentum.</p> -->
+
+		<!-- 				<h4>Subheading</h4> -->
+		<!-- 				<p>Maecenas sed diam eget risus varius blandit sit amet non -->
+		<!-- 					magna.</p> -->
+		<!-- 			</div> -->
+		<!-- 		</div> -->
+
+		<!-- 		<div class="footer"> -->
+		<!-- 			<p>© Company 2014</p> -->
+		<!-- 		</div> -->
+
+	</div>
+	<!-- /container -->
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script type="text/javascript"
+		src="https://twitter.github.io/typeahead.js/js/handlebars.js"></script>
+	<script type="text/javascript"
+		src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+
+</body>
+</html>

@@ -13,19 +13,25 @@ import java.util.ArrayList;
 import com.bacon.core.entities.Occurrence;
 import com.bacon.core.services.BaconAnalysis;
 import com.bacon.core.services.BaconAnalysis.Entry;
+import com.bacon.core.util.ProgressCallback;
 import com.google.common.collect.Lists;
 
 public class StaticAnalyzer {
 
-	public void process(String staticDir, BaconAnalysis analysis) {
+	
+	
+	public void process(String staticDir, BaconAnalysis analysis, ProgressCallback callback) {
 
 		ArrayList<File> files = Lists.newArrayList();
 		listFiles(staticDir, files);
 
 		FileInputStream in = null;
-
+		
+		callback.onProgressChanged(0);
+		
+		int i = 0;
 		for(File f : files) {
-			
+			i++;
 			try {
 				in = new FileInputStream(f);
 			} catch (FileNotFoundException e) {
@@ -41,6 +47,7 @@ public class StaticAnalyzer {
 			} catch (Throwable e) {
 				System.out.println("Could not parse file " + f.getAbsolutePath());
 			} finally {
+				callback.onProgressChanged(i * 100 / files.size());
 				try {
 					in.close();
 				} catch (IOException e) {
@@ -48,7 +55,7 @@ public class StaticAnalyzer {
 				}
 			}
 		}
-
+		callback.onProgressChanged(100);
 	}
 
 	public void listFiles(String directoryName, ArrayList<File> files) {

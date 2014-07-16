@@ -21,7 +21,10 @@ import com.bacon.mayo.ws.ServicePaths;
 import com.bacon.mayo.ws.entities.WSConcept;
 import com.bacon.mayo.ws.entities.WSOccurrence;
 import com.google.common.collect.Lists;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
 
+@Api(value=ServicePaths.CONCEPTS, description="The service used to manage concepts")
 @Path(ServicePaths.CONCEPTS)
 public class WSConceptService {
 
@@ -36,6 +39,10 @@ public class WSConceptService {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
+	@ApiOperation(
+			value="Gets the links between concepts",
+			response=WSConcept.class,
+			responseContainer="List")
 	public List<WSConcept> getLinks() {
 		List<Concept> concepts = conceptService.getAllConcepts();
 		List<WSConcept> result = new ArrayList<WSConcept>();
@@ -53,6 +60,10 @@ public class WSConceptService {
 	@GET
 	@Path("/{concept}/occurrences")
 	@Produces(MediaType.APPLICATION_JSON)
+	@ApiOperation(
+			value="Gets the occurrences of concepts in source files",
+			response=WSOccurrence.class,
+			responseContainer="List")
 	public List<WSOccurrence> getOccurrences(@PathParam("concept") String concept) {
 		List<WSOccurrence> result = Lists.newArrayList();
 		List<Occurrence> occurrences = conceptService.getOccurrences(concept);
